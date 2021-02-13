@@ -1,5 +1,6 @@
 const btn = document.getElementById("btn_in");
 const btnShow = document.getElementById("show_btn");
+var ul = document.getElementById("show_list");
 var my_list = []
 
 const addList = function(){
@@ -7,17 +8,15 @@ const addList = function(){
     val = input.value;
     my_list.push(val)
     input.value = '';
-    console.log(my_list);
+    ul.innerHTML = '';
 
 }
 const showList = function(){
-    var ul = document.getElementById("show_list");
-    var li = document.createElement("li");
-    li.value = '';
     for (i = 0; i < my_list.length; i++) {
-        console.log(my_list[i])
-        li.appendChild(document.createTextNode(my_list[i]));
-        ul.appendChild(li)
+        var li = document.createElement("li");
+        element = my_list[i]
+        li.appendChild(document.createTextNode(element));
+        ul.appendChild(li);
     }
  
 }
