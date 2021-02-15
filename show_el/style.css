@@ -1,0 +1,16 @@
+.btn {
+    margin: 10px;
+    padding: 20px;
+}
+
+#ol_show{
+    display: none;
+}
+
+.double{
+    display: none;
+}
+
+.visibility {
+    display: block;
+}

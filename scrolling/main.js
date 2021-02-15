@@ -1,9 +1,10 @@
-let window_h = 10000;
+// let window_h = 10000;
 document.body.style.height = window_h + "px";
 const div = document.createElement("div");
 document.body.appendChild(div);
 var lastScrollTop = 0;
 var window_w = window.innerWidth;
+
 
 div.style.position = "fixed";
 div.style.top = 0;
