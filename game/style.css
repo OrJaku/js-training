@@ -1,0 +1,15 @@
+.main{
+    text-align: center;
+}
+
+.img_player{
+    border: 10px solid green;
+}
+
+.img_computer{
+    border: 10px solid blue;
+}
+
+.img_hover{
+    border: 6px solid rgba(82, 82, 82, 0.61);
+}
