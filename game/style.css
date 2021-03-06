@@ -2,14 +2,21 @@
     text-align: center;
 }
 
+
 .img_player{
-    border: 10px solid green;
+    background-color:  green;
 }
 
 .img_computer{
-    border: 10px solid blue;
+    background-color:  blue;
 }
 
 .img_hover{
-    border: 6px solid rgba(82, 82, 82, 0.61);
+    background-color:  rgba(82, 82, 82, 0.61);
+}
+
+.one_line {
+    display: inline-block;
+    
+
 }
