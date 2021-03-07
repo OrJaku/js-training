@@ -90,10 +90,9 @@ var imgs = document.getElementsByClassName("one_line")
         score.innerHTML = (`Player: ${playerPoints} || Computer: ${computerPoints}`);
         setTimeout(() => { 
             clearInterval(blinkFrame);
+            computerImage.style.backgroundColor = "";
             playerChoose.classList.remove("img_player");
-            computerImage.style.backgroundColor = "white";
-
-
+            computerImage.classList.remove("img_computer");
         }, 3000);
        
     }
