@@ -5,6 +5,8 @@ var playerPoints = 0;
 var computerPoints = 0;
 var playerChoose;
 var computerChoose;
+var playerChooseId;
+var computerChooseId;
 
 
 var oneLineDivSize = document.querySelectorAll('.one_line');
@@ -31,14 +33,16 @@ var imgs = document.getElementsByClassName("one_line")
             }},
             function () {
                 $(this).removeClass("img_hover"); 
+
             });
 
         $(img).click(
             function () {
-                playerChoose = img.id;
+                playerChoose = img;
+                playerChooseId = img.id;
                 $(this).toggleClass("img_player");
                 if (img.classList.contains("img_player")){
-                    console.log(`Player, ${playerChoose}`)
+                    console.log(`Player, ${playerChooseId}`)
                     computerSelect()
 
                 }
@@ -48,48 +52,50 @@ var imgs = document.getElementsByClassName("one_line")
     const computerSelect = function(){
         const rnd = Math.floor(Math.random() * imgs.length);
         var computerImage = imgs[rnd];
-        computerChoose = computerImage.id
-        console.log("Computer", computerChoose)
+        computerChooseId = computerImage.id;
+        console.log("Computer", computerChooseId);
         $(computerImage).toggleClass("img_computer");
-        setInterval(function() {
+
+        var blinkFrame = setInterval(function() {
             computerImage.style.backgroundColor = (computerImage.style.backgroundColor == 'blue' ? 'rgba(82, 82, 82, 0.1' : 'blue');
-        }, 500);
-        if (playerChoose == computerChoose){
+        }, 300);
+        if (playerChooseId == computerChooseId){
             result.innerHTML = ("Remis");
         }
-        else if (playerChoose == "nozyce" && computerChoose == "papier"){
+        else if (playerChooseId == "nozyce" && computerChooseId == "papier"){
             result.innerHTML = ("Gracz Wygrywa");
             playerPoints++;
-
         }
-        else if (playerChoose == "nozyce" && computerChoose == "kamien"){
+        else if (playerChooseId == "nozyce" && computerChooseId == "kamien"){
             result.innerHTML = ("Komputer Wygrywa");
             computerPoints++;
 
         }
-        else if (playerChoose == "kamien" && computerChoose == "nozyce"){
+        else if (playerChooseId == "kamien" && computerChooseId == "nozyce"){
             result.innerHTML = ("Gracz Wygrywa");
             playerPoints++;
-
         }
-        else if (playerChoose == "kamien" && computerChoose == "papier"){
+        else if (playerChooseId == "kamien" && computerChooseId == "papier"){
             result.innerHTML = ("Komputer Wygrywa");
             computerPoints++;
-
         }
-        else if (playerChoose == "papier" && computerChoose == "kamien"){
+        else if (playerChooseId == "papier" && computerChooseId == "kamien"){
             result.innerHTML = ("Gracz Wygrywa");
             playerPoints++;
-
         }
-        else if (playerChoose == "papier" && computerChoose == "nozyce"){
+        else if (playerChooseId == "papier" && computerChooseId == "nozyce"){
             result.innerHTML = ("Komputer Wygrywa");
             computerPoints++;
-
         }
         score.innerHTML = (`Player: ${playerPoints} || Computer: ${computerPoints}`);
+        setTimeout(() => { 
+            clearInterval(blinkFrame);
+            playerChoose.classList.remove("img_player");
+            computerImage.style.backgroundColor = "white";
 
 
+        }, 3000);
+       
     }
 
 
