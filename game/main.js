@@ -94,7 +94,4 @@ var imgs = document.getElementsByClassName("one_line")
             playerChoose.classList.remove("img_player");
             computerImage.classList.remove("img_computer");
         }, 3000);
-       
     }
-
-
